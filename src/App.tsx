@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [title, setTitle] = useState("리액트");
+	//뭐임???
+	const changeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTitle(e.target.value);
+	};
+
+	return (
+		<div className="App">
+			<h1>{title}</h1>
+			<input type="text" onChange={changeTitle} />
+		</div>
+	);
 }
 
 export default App;
