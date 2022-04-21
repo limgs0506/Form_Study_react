@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import AuthPage from "./components/page/auth";
 
 function App() {
 	const [title, setTitle] = useState("리액트");
@@ -8,12 +9,7 @@ function App() {
 		setTitle(e.target.value);
 	};
 
-	return (
-		<div className="App">
-			<h1>{title}</h1>
-			<input type="text" onChange={changeTitle} />
-		</div>
-	);
+	return <AuthPage />;
 }
 
 export default App;
