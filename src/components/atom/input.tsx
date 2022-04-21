@@ -5,6 +5,7 @@ type Props = {
 	name: string;
 	id?: string;
 	holder?: string;
+	value?: string;
 };
 
 const Input: React.FC<Props> = (props) => {
@@ -14,6 +15,7 @@ const Input: React.FC<Props> = (props) => {
 			name={props.name}
 			id={props.id}
 			placeholder={props.holder}
+			value={props.value}
 		/>
 	);
 };
