@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 type Props = {
-	children: string;
+	children: String;
 };
 
 const HeaderTitle: React.FC<Props> = (props) => {

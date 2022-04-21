@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 type Props = {
-	children: string;
+	children: String;
 };
 
 const Button: React.FC<Props> = (props) => {
