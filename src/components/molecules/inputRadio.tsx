@@ -11,7 +11,7 @@ type Props = {
 	value?: string;
 };
 
-const InputText: React.FC<Props> = (props) => {
+const InputRadio: React.FC<Props> = (props) => {
 	return (
 		<div className="gender_input">
 			<Input
@@ -26,4 +26,4 @@ const InputText: React.FC<Props> = (props) => {
 	);
 };
 
-export default InputText;
+export default InputRadio;
