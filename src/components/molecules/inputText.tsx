@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Input from "../atom/input";
+import Label from "../atom/label";
 
 type Props = {
 	type: string;
@@ -11,12 +13,12 @@ type Props = {
 const InputText: React.FC<Props> = (props) => {
 	return (
 		<div className="input_con">
-			<label htmlFor={props.name}> {props.children} </label>
-			<input
+			<Label name={props.name}>{props.children}</Label>
+			<Input
 				type={props.type}
 				name={props.name}
 				id={props.id}
-				placeholder={props.holder}
+				holder={props.holder}
 			/>
 		</div>
 	);
