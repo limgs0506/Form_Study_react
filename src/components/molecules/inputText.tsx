@@ -8,6 +8,7 @@ type Props = {
 	name: string;
 	id?: string;
 	holder?: string;
+	value?: string;
 };
 
 const InputText: React.FC<Props> = (props) => {
@@ -19,6 +20,7 @@ const InputText: React.FC<Props> = (props) => {
 				name={props.name}
 				id={props.id}
 				holder={props.holder}
+				value={props.value}
 			/>
 		</div>
 	);
