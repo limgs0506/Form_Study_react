@@ -1,3 +1,14 @@
 import React, { Component } from "react";
+import RegistForm from "./registForm";
 
-export default Main = () => {};
+const Main: React.FC = () => {
+	return (
+		<main>
+			<article>
+				<RegistForm />
+			</article>
+		</main>
+	);
+};
+
+export default Main;
