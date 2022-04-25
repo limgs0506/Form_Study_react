@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 type Props = {
 	type: string;
@@ -8,9 +9,20 @@ type Props = {
 	value?: string;
 };
 
+const StyledInput = styled.input`
+	height: 50px;
+	width: 100%;
+	border-radius: 5px;
+	outline: none;
+	font-size: large;
+	padding-left: 10px;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+`;
 const Input: React.FC<Props> = (props) => {
 	return (
-		<input
+		<StyledInput
 			type={props.type}
 			name={props.name}
 			id={props.id}
