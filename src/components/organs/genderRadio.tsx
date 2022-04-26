@@ -4,10 +4,8 @@ import InputRadio from "../molecules/inputRadio";
 
 type Props = {
 	type: string;
-	children: string;
 	name: string;
 	id?: string;
-	holder?: string;
 	value?: string;
 };
 
