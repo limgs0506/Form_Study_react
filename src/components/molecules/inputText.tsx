@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Input from "../atom/input";
 import Label from "../atom/label";
+import styled from "styled-components";
 
 type Props = {
 	type: string;
@@ -11,9 +12,15 @@ type Props = {
 	value?: string;
 };
 
+const StyeldDiv = styled.div`
+	isplay: flex;
+	flex-direction: column;
+	width: calc(100% / 2 - 10px);
+`;
+
 const InputText: React.FC<Props> = (props) => {
 	return (
-		<div className="input_con">
+		<StyeldDiv className="input_con">
 			<Label name={props.name}>{props.children}</Label>
 			<Input
 				type={props.type}
@@ -22,7 +29,7 @@ const InputText: React.FC<Props> = (props) => {
 				holder={props.holder}
 				value={props.value}
 			/>
-		</div>
+		</StyeldDiv>
 	);
 };
 
