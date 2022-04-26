@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
+const StyledFooter = styled.footer`
+	background-color: lightslategray;
+	padding: 1rem;
+`;
 const Footer: React.FC = () => {
 	return (
-		<footer>
+		<StyledFooter>
 			<abbr> 푸터 </abbr>
-		</footer>
+		</StyledFooter>
 	);
 };
 export default Footer;

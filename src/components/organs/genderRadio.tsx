@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Label from "../atom/label";
 import InputRadio from "../molecules/inputRadio";
+import styled from "styled-components";
 
 type Props = {
 	type: string;
@@ -9,11 +10,25 @@ type Props = {
 	value?: string;
 };
 
+const StyledInputDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: calc(100% / 2 - 10px);
+`;
+const StyledGenderDiv = styled.div`
+	display: flex;
+	height: 50px;
+	width: 100%;
+	justify-content: space-around;
+	align-items: center;
+	font-size: medium;
+`;
+
 const GenderRadio: React.FC<Props> = (props) => {
 	return (
-		<div className="input_con" id="gender">
-			<Label name={props.name}>gender</Label>
-			<div className="gender_div">
+		<StyledInputDiv className="input_con" id="gender">
+			<StyledGenderDiv className="gender_div">
+				<Label name={props.name}>gender</Label>
 				<InputRadio
 					type={props.type}
 					name={props.name}
@@ -38,8 +53,8 @@ const GenderRadio: React.FC<Props> = (props) => {
 				>
 					etc
 				</InputRadio>
-			</div>
-		</div>
+			</StyledGenderDiv>
+		</StyledInputDiv>
 	);
 };
 
