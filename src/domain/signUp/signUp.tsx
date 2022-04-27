@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../organs/header";
-import Main from "./../organs/main";
-import Footer from "./../organs/footer";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import Main from "../../components/organs/main";
 
 const AuthPage: React.FC = () => {
 	return (
