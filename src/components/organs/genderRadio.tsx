@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Label from "../atom/label";
 import InputRadio from "../molecules/inputRadio";
 import styled from "styled-components";

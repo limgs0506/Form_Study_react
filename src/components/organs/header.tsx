@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import HeaderNav from "../molecules/HeaderNav";
 import HeaderTitle from "../molecules/HeaderTitle";
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import InputText from "../molecules/inputText";
 import Input from "../atom/input";
 import GenderRadio from "./genderRadio";
