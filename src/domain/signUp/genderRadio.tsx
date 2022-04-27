@@ -1,6 +1,6 @@
 import React from "react";
-import Label from "../atom/label";
-import InputRadio from "../molecules/inputRadio";
+import Label from "../../components/atom/label";
+import InputRadio from "./inputRadio";
 import styled from "styled-components";
 
 type Props = {

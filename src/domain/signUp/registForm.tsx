@@ -1,6 +1,6 @@
 import React from "react";
-import InputText from "../molecules/inputText";
-import Input from "../atom/input";
+import InputText from "./inputText";
+import Input from "../../components/atom/input";
 import GenderRadio from "./genderRadio";
 import styled from "styled-components";
 

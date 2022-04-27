@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Input from "../atom/input";
-import Label from "../atom/label";
+import Input from "../../components/atom/input";
+import Label from "../../components/atom/label";
 
 type Props = {
 	type: string;
