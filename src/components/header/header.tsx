@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import HeaderNav from "../molecules/HeaderNav";
-import HeaderTitle from "../molecules/HeaderTitle";
+import React from "react";
+import HeaderNav from "./HeaderNav";
+import HeaderTitle from "./HeaderTitle";
 
 const Header: React.FC = () => {
 	return (
