@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 `;
 const StyledMain = styled.main`
 	flex: 1 0 auto;
-	min-height: 100%;
+	min-height: 100vh;
 	padding: 0 3rem;
 	background-color: white;
 `;
