@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../atom/button";
+import Button from "./button";
 import styled from "styled-components";
 
 const StyledNav = styled.nav`
