@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import AuthPage from "./components/page/auth";
+import AuthPage from "./domain/signUp/signUp";
 
 function App() {
 	const [title, setTitle] = useState("리액트");
