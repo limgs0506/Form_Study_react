@@ -1,6 +1,74 @@
 import React from "react";
 import styled from "styled-components";
 
+type Props = {
+	postTitle: string;
+};
+
+const SignUpArticle: React.FC<Props> = (props) => {
+	return (
+		<Article>
+			<h2 id="h2">{props.postTitle}</h2>
+			<Form action="result" method="post">
+				<Div>
+					<Label htmlFor="id"> 아이디 </Label>
+					<Input type="text" name="id" placeholder="xx@email.com" />
+				</Div>
+				<Div>
+					<Label htmlFor="name"> 이름 </Label>
+					<Input type="text" name="name" />
+				</Div>
+				<Div>
+					<Label htmlFor="pw"> 비밀번호 </Label>
+					<Input
+						type="password"
+						name="pw"
+						placeholder="영문, 숫자 포함 8~16자"
+						id="password"
+					/>
+				</Div>
+				<Div>
+					<Label htmlFor="password"> 비밀번호 확인</Label>
+					<Input type="password" name="pass_con" id="password_confirm" />
+				</Div>
+				<Div>
+					<Label htmlFor="birth"> 출생연도 </Label>
+					<Input type="date" name="birth" />
+				</Div>
+				<Div>
+					<Label htmlFor="adress"> 주소 </Label>
+					<Input type="text" name="adress" />
+				</Div>
+				<Div className="wide">
+					<Label htmlFor="gender"> 성별 </Label>
+					<DivGender>
+						<DivInputGender>
+							<input type="radio" name="gender" value="male" id="male" />
+							<Label htmlFor="male">male</Label>
+						</DivInputGender>
+						<DivInputGender>
+							<input type="radio" name="gender" value="female" id="female" />
+							<Label htmlFor="female">female</Label>
+						</DivInputGender>
+						<DivInputGender>
+							<input type="radio" name="gender" value="etc" id="etc" />
+							<Label htmlFor="etc">etc</Label>
+						</DivInputGender>
+					</DivGender>
+				</Div>
+				<Div className="wide">
+					<Label htmlFor="bio"> 자기소개 </Label>
+					<textarea name="bio" rows={5} />
+				</Div>
+
+				<Submit type="submit" value="회원가입" />
+			</Form>
+		</Article>
+	);
+};
+
+export default SignUpArticle;
+
 const Article = styled.article`
 	display: flex;
 	flex-direction: column;
@@ -11,7 +79,6 @@ const Article = styled.article`
 		margin: 1em 0;
 	}
 `;
-
 const Form = styled.form`
 	display: flex;
 	flex-wrap: wrap;
@@ -27,9 +94,9 @@ const Div = styled.div`
 	display: flex;			
 	flex-direction: column;
 	width: calc(100% / 2 - 10px);
-	#wide {
+	&.wide {
 		width: 100%;
-	#wide > textarea {
+	&.wide textarea {
 		padding: 5px;
 		resize: none;
 	}
@@ -70,16 +137,12 @@ const DivGender = styled.div`
 	font-size: medium;
 `;
 const DivInputGender = styled.div`
-	& > input:checked + label {
-		font-weight: bold;
+	& > input:checked + ${Label} {
+		color: red;
 	}
 `;
-const DivSubmit = styled.div`
-	display: flex;
-	width: 100%;
-	align-items: flex-end;
-`;
 const Submit = styled.input`
+	margin: 5% auto auto auto;
 	width: 100%;
 	height: 100%;
 	border: 0;
@@ -93,71 +156,3 @@ const Submit = styled.input`
 		background-color: crimson;
 	}
 `;
-type Props = {
-	postTitle: string;
-};
-
-const SignUpArticle: React.FC<Props> = (props) => {
-	return (
-		<Article>
-			<h2 id="h2">{props.postTitle}</h2>
-			<Form action="result" method="post" className="htmlForm">
-				<Div>
-					<Label htmlFor="id"> 아이디 </Label>
-					<Input type="text" name="id" placeholder="xx@email.com" />
-				</Div>
-				<Div>
-					<Label htmlFor="name"> 이름 </Label>
-					<Input type="text" name="name" />
-				</Div>
-				<Div>
-					<Label htmlFor="pw"> 비밀번호 </Label>
-					<Input
-						type="password"
-						name="pw"
-						placeholder="영문, 숫자 포함 8~16자"
-						id="password"
-					/>
-				</Div>
-				<Div>
-					<Label htmlFor="password"> 비밀번호 확인</Label>
-					<Input type="password" name="pass_con" id="password_confirm" />
-				</Div>
-				<Div>
-					<Label htmlFor="birth"> 출생연도 </Label>
-					<Input type="date" name="birth" />
-				</Div>
-				<Div>
-					<Label htmlFor="adress"> 주소 </Label>
-					<Input type="text" name="adress" />
-				</Div>
-				<Div id="wide">
-					<Label htmlFor="gender"> 성별 </Label>
-					<DivGender>
-						<DivInputGender>
-							<input type="radio" name="gender" value="male" id="male" />
-							<Label htmlFor="male">male</Label>
-						</DivInputGender>
-						<DivInputGender>
-							<input type="radio" name="gender" value="female" id="female" />
-							<Label htmlFor="female">female</Label>
-						</DivInputGender>
-						<DivInputGender>
-							<input type="radio" name="gender" value="etc" id="etc" />
-							<Label htmlFor="etc">etc</Label>
-						</DivInputGender>
-					</DivGender>
-				</Div>
-				<Div id="wide">
-					<Label htmlFor="bio"> 자기소개 </Label>
-					<textarea name="bio" rows={5} />
-				</Div>
-				<DivSubmit>
-					<Submit type="submit" value="회원가입" />
-				</DivSubmit>
-			</Form>
-		</Article>
-	);
-};
-
-export default SignUpArticle;
