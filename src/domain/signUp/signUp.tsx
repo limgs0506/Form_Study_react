@@ -25,14 +25,21 @@ const SignUpArticle: React.FC<Props> = (props) => {
 			[name]: value,
 		});
 	};
-	const addValueObj = (e: React.FormEvent) => {
+	const postSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		console.log(JSON.stringify(inputValue, null, 2));
+		fetch("http://localhost:3001/result", {
+			method: "post",
+			headers: { "Content-Type": "application/json; charset=utf-8" },
+			mode: "cors",
+			body: JSON.stringify(inputValue, null, 2),
+		})
+			.then((res) => res.json())
+			.then((json) => console.log(json));
 	};
 	return (
 		<Article>
 			<h2 id="h2">{props.postTitle}</h2>
-			<Form action="result" method="post" onSubmit={addValueObj}>
+			<Form onSubmit={postSubmit}>
 				<Div>
 					<Label htmlFor="id"> 아이디 </Label>
 					<Input
