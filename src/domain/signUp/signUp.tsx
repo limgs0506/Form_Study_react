@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -6,17 +6,46 @@ type Props = {
 };
 
 const SignUpArticle: React.FC<Props> = (props) => {
+	const [inputValue, setInputValue] = useState({
+		id: "",
+		pw: "",
+		pwcf: "",
+		name: "",
+		birth: "",
+		adress: "",
+		gender: "",
+		bio: "",
+	});
+	const changeValue = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		const { name, value } = e.target;
+		setInputValue({
+			...inputValue,
+			[name]: value,
+		});
+	};
+	const addValueObj = (e: React.FormEvent) => {
+		e.preventDefault();
+		console.log(JSON.stringify(inputValue, null, 2));
+	};
 	return (
 		<Article>
 			<h2 id="h2">{props.postTitle}</h2>
-			<Form action="result" method="post">
+			<Form action="result" method="post" onSubmit={addValueObj}>
 				<Div>
 					<Label htmlFor="id"> 아이디 </Label>
-					<Input type="text" id="id" name="id" placeholder="xx@email.com" />
+					<Input
+						type="text"
+						id="id"
+						name="id"
+						placeholder="xx@email.com"
+						onChange={changeValue}
+					/>
 				</Div>
 				<Div>
 					<Label htmlFor="name"> 이름 </Label>
-					<Input type="text" id="name" name="name" />
+					<Input type="text" id="name" name="name" onChange={changeValue} />
 				</Div>
 				<Div>
 					<Label htmlFor="pw"> 비밀번호 </Label>
@@ -25,40 +54,65 @@ const SignUpArticle: React.FC<Props> = (props) => {
 						name="pw"
 						placeholder="영문, 숫자 포함 8~16자"
 						id="pw"
+						onChange={changeValue}
 					/>
 				</Div>
 				<Div>
 					<Label htmlFor="pwcf"> 비밀번호 확인</Label>
-					<Input type="password" id="pwcf" name="pwcf" />
+					<Input type="password" id="pwcf" name="pwcf" onChange={changeValue} />
 				</Div>
 				<Div>
 					<Label htmlFor="birth"> 출생연도 </Label>
-					<Input type="date" id="birth" name="birth" />
+					<Input type="date" id="birth" name="birth" onChange={changeValue} />
 				</Div>
 				<Div>
 					<Label htmlFor="adress"> 주소 </Label>
-					<Input type="text" id="adress" name="adress" />
+					<Input type="text" id="adress" name="adress" onChange={changeValue} />
 				</Div>
 				<Div className="wide">
 					<Label> 성별 </Label>
 					<DivGender>
 						<DivInputGender>
-							<input type="radio" name="gender" value="male" id="male" />
+							<input
+								type="radio"
+								name="gender"
+								value="male"
+								id="male"
+								onChange={changeValue}
+							/>
 							<Label htmlFor="male">male</Label>
 						</DivInputGender>
 						<DivInputGender>
-							<input type="radio" name="gender" value="female" id="female" />
+							<input
+								type="radio"
+								name="gender"
+								value="female"
+								id="female"
+								onChange={changeValue}
+							/>
 							<Label htmlFor="female">female</Label>
 						</DivInputGender>
 						<DivInputGender>
-							<input type="radio" name="gender" value="etc" id="etc" />
+							<input
+								type="radio"
+								name="gender"
+								value="etc"
+								id="etc"
+								onChange={changeValue}
+							/>
 							<Label htmlFor="etc">etc</Label>
 						</DivInputGender>
 					</DivGender>
 				</Div>
 				<Div className="wide">
 					<Label htmlFor="bio"> 자기소개 </Label>
-					<textarea id="bio" name="bio" rows={5} />
+					<textarea
+						id="bio"
+						name="bio"
+						rows={5}
+						spellCheck="false"
+						onChange={changeValue}
+					/>
 				</Div>
 
 				<Submit type="submit" value="회원가입" />
