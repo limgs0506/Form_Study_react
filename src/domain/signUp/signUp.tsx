@@ -12,11 +12,11 @@ const SignUpArticle: React.FC<Props> = (props) => {
 			<Form action="result" method="post">
 				<Div>
 					<Label htmlFor="id"> 아이디 </Label>
-					<Input type="text" name="id" placeholder="xx@email.com" />
+					<Input type="text" id="id" name="id" placeholder="xx@email.com" />
 				</Div>
 				<Div>
 					<Label htmlFor="name"> 이름 </Label>
-					<Input type="text" name="name" />
+					<Input type="text" id="name" name="name" />
 				</Div>
 				<Div>
 					<Label htmlFor="pw"> 비밀번호 </Label>
@@ -24,23 +24,23 @@ const SignUpArticle: React.FC<Props> = (props) => {
 						type="password"
 						name="pw"
 						placeholder="영문, 숫자 포함 8~16자"
-						id="password"
+						id="pw"
 					/>
 				</Div>
 				<Div>
-					<Label htmlFor="password"> 비밀번호 확인</Label>
-					<Input type="password" name="pass_con" id="password_confirm" />
+					<Label htmlFor="pwcf"> 비밀번호 확인</Label>
+					<Input type="password" id="pwcf" name="pwcf" />
 				</Div>
 				<Div>
 					<Label htmlFor="birth"> 출생연도 </Label>
-					<Input type="date" name="birth" />
+					<Input type="date" id="birth" name="birth" />
 				</Div>
 				<Div>
 					<Label htmlFor="adress"> 주소 </Label>
-					<Input type="text" name="adress" />
+					<Input type="text" id="adress" name="adress" />
 				</Div>
 				<Div className="wide">
-					<Label htmlFor="gender"> 성별 </Label>
+					<Label> 성별 </Label>
 					<DivGender>
 						<DivInputGender>
 							<input type="radio" name="gender" value="male" id="male" />
@@ -58,7 +58,7 @@ const SignUpArticle: React.FC<Props> = (props) => {
 				</Div>
 				<Div className="wide">
 					<Label htmlFor="bio"> 자기소개 </Label>
-					<textarea name="bio" rows={5} />
+					<textarea id="bio" name="bio" rows={5} />
 				</Div>
 
 				<Submit type="submit" value="회원가입" />
