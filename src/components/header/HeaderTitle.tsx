@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 type Props = {
@@ -11,10 +12,16 @@ const StyledDiv = styled.div`
 	background-color: aqua;
 	font-size: 15px;
 `;
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: inherit;
+`;
 const HeaderTitle: React.FC<Props> = (props) => {
 	return (
 		<StyledDiv>
-			<h1>{props.children}</h1>
+			<StyledLink to="/">
+				<h1>{props.children}</h1>
+			</StyledLink>
 		</StyledDiv>
 	);
 };
