@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
 };
 
 const SignUpArticle: React.FC<Props> = (props) => {
+	const navi = useNavigate();
+
 	const [inputValue, setInputValue] = useState({
 		id: "",
 		pw: "",
@@ -35,10 +38,13 @@ const SignUpArticle: React.FC<Props> = (props) => {
 		})
 			.then((res) => res.json())
 			.then((json) => console.log(json));
+		/* useNavigate로 submit 시 /result로 보냄 */
+		navi(`/result`);
 	};
+
 	return (
 		<Article>
-			<h2 id="h2">{props.postTitle}</h2>
+			<h2>{props.postTitle}</h2>
 			<Form onSubmit={postSubmit}>
 				<Div>
 					<Label htmlFor="id"> 아이디 </Label>
