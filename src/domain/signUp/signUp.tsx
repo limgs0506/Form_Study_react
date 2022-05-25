@@ -38,7 +38,13 @@ const SignUpArticle: React.FC<Props> = (props) => {
 		})
 			.then((res) => res.json())
 			.then((json) => console.log(json));
-		/* useNavigate로 submit 시 /result로 보냄 */
+
+		/*
+		실제 서버에 빌드하면 navigate가 아니라 
+		get request로 이동해야 하는가?
+		navigate로 get 요청이 되나?
+		가완성 후 요수정
+		*/
 		navi(`/result`);
 	};
 
