@@ -9,7 +9,7 @@ function App() {
 		<PostTemplate>
 			<Routes>
 				<Route index element={<SignUpArticle postTitle="회원가입" />} />
-				<Route path="result" element={<Result />} />
+				<Route path="result/:memberID" element={<Result />} />
 			</Routes>
 		</PostTemplate>
 	);

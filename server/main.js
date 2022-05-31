@@ -11,31 +11,28 @@ app.use(express.json());
 
 app.post("/result", (req, res, next) => {
 	const memberID = req.body.id;
-	const bodyStr = JSON.stringify(req.body, null, 2);
 	const PATH = `./data/${memberID}.json`;
+	const bodyStr = JSON.stringify(req.body, null, 2);
+
 	try {
 		if (!fs.existsSync(PATH)) {
 			fs.writeFileSync(PATH, bodyStr);
 		} else {
 			console.log("!there is memeber has same ID aleady!");
-			/*
-				한 파일 안에서 해결하려던 흔적
-				fs.readFile(PATH, (err, data) => {
-				let obj = [];
-				obj.push(JSON.parse(data));
-				obj.push(req.body);
-
-				const objStr = obj.map((element) => JSON.stringify(element, null, 2));
-				console.log("obj: ", objStr.toString());
-				fs.appendFileSync(PATH, data);
-			}) 
-			*/
 		}
 	} catch (e) {
 		console.error(e);
 	} finally {
 		res.json(req.body);
 	}
+});
+app.get("/result/:memberID", (req, res, next) => {
+	const memberID = req.params.memberID;
+	const PATH = `./data/${memberID}.json`;
+	fs.readFile(PATH, (err, data) => {
+		console.log("DATA: ", data.toString());
+		res.send(data.toString());
+	});
 });
 
 app.listen(PORT, () => {
